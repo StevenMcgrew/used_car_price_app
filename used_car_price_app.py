@@ -88,3 +88,5 @@ if st.sidebar.button('Get Price'):
         st.text(f"Price:  ${prediction[0]:,.2f}")
     except Exception as e:
         st.error(f"Error during price prediction: {e}")
+
+# The app is hosted at https://used-car-price-steven-mcgrew.streamlit.app/
