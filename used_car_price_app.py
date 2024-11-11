@@ -3,10 +3,6 @@ import pandas as pd
 from sklearn import preprocessing
 from xgboost import XGBRegressor
 
-# Page title and sidebar header
-st.title('Used Car Price')
-st.sidebar.header('Select Used Car')
-
 # Custom styles
 st.markdown(
     f"""
@@ -27,6 +23,20 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# Page title and sidebar header
+st.title('Used Car Price')
+st.sidebar.header('Select Used Car')
+
+# Price output
+price = st.empty()
+price.text('Price:  $(use sidebar to calculate)')
+
+# Static images
+st.header('Visuals:')
+st.image('top-features-influencing-price.png')
+st.image('avg-price-per-region.png', width=5984)
+st.image('correlation-heatmap.png')
 
 # Read the vehicle data file
 df = pd.read_csv('cleaned_vehicles_data.csv')
@@ -85,8 +95,9 @@ model.load_model('used_car_price_model.json')
 if st.sidebar.button('Get Price'):
     try:
         prediction = model.predict(user_df)
-        st.text(f"Price:  ${prediction[0]:,.2f}")
+        price.text(f"Price:  ${prediction[0]:,.2f}")
     except Exception as e:
         st.error(f"Error during price prediction: {e}")
 
 # The app is hosted at https://used-car-price-steven-mcgrew.streamlit.app/
+# The Jupyter Notebook for the model is at https://colab.research.google.com/drive/18W1kMghdWOyp_1XGOk2Q7WC57eAJZtOU?usp=sharing
