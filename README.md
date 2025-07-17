@@ -2,3 +2,5 @@ This is a Streamlit web app that uses an XGBoost machine learning model to predi
 
 The web app can be viewed at https://used-car-price-steven-mcgrew.streamlit.app/
 *You may have to wait for the app to "wake up" since it is on free hosting that goes to sleep
+
+<img src="https://github.com/StevenMcgrew/used_car_price_app/blob/master/screenshot_of_web_app.png?raw=true" alt="Image of web app"/>
